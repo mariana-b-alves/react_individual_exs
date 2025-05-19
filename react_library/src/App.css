@@ -5,38 +5,131 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+img {
+  max-width: 100%;
 }
 
-.card {
+body > h1{
+  margin: 1em 0;
+  border-bottom: 2px solid gray;
+  padding: 1em;
+}
+
+section.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 5px;
+  padding: 1em;
+}
+
+section.grid article{
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 1em;
+
+}
+
+section.grid article > *{
+  margin: .8em 0;
+}
+
+.btn{
+  padding: .5em 1em;
+  background-color: darkolivegreen;
+  color: white;
+  border-radius: 8px;
+}
+
+
+section.filters {
+  background-color: rgb(120, 206, 120);
   padding: 2em;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  font-size: 1.2rem;
 }
 
-.read-the-docs {
-  color: #888;
+input.searchTxt{
+  padding: .5em;
+  outline: none;
+}
+
+
+section.popup{
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top:0;
+  left: 0;
+
+  display: none;
+}
+
+section.popup.open{
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor:pointer;
+
+}
+
+img.thumbnail{
+  cursor: pointer;
+}
+
+
+section.addEditForm {
+  background-color: lightgray;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 0;
+  overflow: hidden;
+
+
+  transition: height 300ms ease-out;
+
+}
+
+section.addEditForm.open{
+  height: 350px;
+}
+
+section.addEditForm div{
+  padding: .3em;
+}
+
+section.addEditForm input, section.addEditForm label{
+  display: block;
+  text-align: left;
+}
+
+section.addEditForm input{
+  padding: .3em;
+  width: 300px;
+}
+
+.hide {
+  display: none;
 }
