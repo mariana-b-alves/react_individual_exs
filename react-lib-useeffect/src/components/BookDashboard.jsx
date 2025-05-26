@@ -1,35 +1,27 @@
-import BookList from "./BookList";
-import { useState, useEffect } from "react";
+import { getBooks } from '../../features/books/booksSlice.js';
+import BookFilters from './BookFilters.jsx';
+import BookList from './BookList.jsx'
+import { useEffect } from "react";
+import { useDispatch } from 'react/redux';
 
 
 export default function BookDashboard() {
 
-    const [livros, setLivros] = useState([]);
+    const dispatch = useDispatch();
 
     useEffect(() =>{
-      fetch('https://my-json-server.typicode.com/JoaoGoncalves/biblio-api/books')
+      fetch('http://localhost:3000/books')
         .then((res) => res.json())
-        .then((data) => setLivros(data));
+        .then((data) => dispatch(getBooks(data)))
+        .catch(() => console.log('Ocorreu um erro.'));
         
-    }, []);
-
-    /* useEffect(() => {
-      (async () => {
-        let response = await fetch('https://my-json-server.typicode.com/JoaoGoncalves/biblio-api/books');
-        let data = await fetch response.json();
-        setLivros(data);
-      })();
-    }, []) */
-
-
-    const handleDeleteBook = (id) => {
-        setLivros(livros.filter( l => l.id !== id));
-    }
+    }, [dispatch]);
 
   return (
     <section> 
         <h1>Book Dashboard</h1>
-        <BookList books={livros} deleteBook={handleDeleteBook}/>
+        <BookFilters />
+        <BookList/>
     </section>
   );
 

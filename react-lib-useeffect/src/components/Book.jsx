@@ -1,10 +1,12 @@
-export default function Book({book, deleteBook}) {
+import { useDispatch } from 'react/redux';
+import { deleteBook } from '../../features/books/booksSlice';
+
+export default function Book({book}) {
 
     let {id, title, author, alreadyRead, imageUrl} = book;
 
-    const handleDelete = () => {
-        deleteBook(id);
-    }
+    const dispatch = useDispatch();
+
 
   return (
     <article>
@@ -12,7 +14,7 @@ export default function Book({book, deleteBook}) {
         <h2>{author}</h2>
         <img src={`./livros/${imageUrl}`} alt={title} />
         <p>Already Read : {alreadyRead ? '✅' : '❌' }  </p>
-        <button className="btn" onClick={handleDelete}>Delete</button>
+        <button className="btn" onClick={ () => dispatch(deleteBook(id))}>Delete</button>
     </article>
   );
 }
