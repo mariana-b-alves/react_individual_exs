@@ -2,7 +2,7 @@
   "name": "lamp_ex",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/mariana-b-alves/lamp_ex",
+  "homepage": "https://github.io/mariana-b-alves/lamp_ex",
   "type": "module",
   "scripts": {
     "predeploy": "vite build",
