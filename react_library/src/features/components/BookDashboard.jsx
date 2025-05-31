@@ -1,5 +1,5 @@
 import BookList from "./BookList";
-import {books} from '../data.json';
+import {books} from '../../data.json';
 import { useState } from "react";
 
 

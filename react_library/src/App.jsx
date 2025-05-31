@@ -1,5 +1,5 @@
 import './App.css'
-import BookDashboard from './components/BookDashboard'
+import BookDashboard from './features/components/BookDashboard'
 
 function App() {
   
